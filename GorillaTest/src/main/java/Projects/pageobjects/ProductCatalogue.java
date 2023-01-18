@@ -18,14 +18,18 @@ public class ProductCatalogue extends AbstractComponent {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
-
+	
+	//Initialize a list elements in FindBy clause
 	@FindBy(css = ".mb-3")
 	List<WebElement> products;
 
+	// By variables
 	By productsBy = By.cssSelector(".mb-3");
+	By addProductToCart = By.cssSelector(".card-body button:last-of-type");
+	By toastMessage = By.cssSelector("#toast-container");
 
+	//List type method 
 	public List<WebElement> getProductList() {
 		waitForElementToAppear(productsBy);
 		return products;
@@ -40,7 +44,6 @@ public class ProductCatalogue extends AbstractComponent {
 	
 public void addProductToCart(String productName) {
 	WebElement prod= getProductByName(productName);
-	//prod.findElement(addToCart).click();
-	
+	waitForElementToAppear(toastMessage);
 }
 }
