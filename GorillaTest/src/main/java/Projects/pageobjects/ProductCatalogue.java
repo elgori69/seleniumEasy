@@ -24,9 +24,12 @@ public class ProductCatalogue extends AbstractComponent {
 	@FindBy(css = ".mb-3")
 	List<WebElement> products;
 
+	@FindBy(css = "..ng-animating")
+	WebElement spinner;
+	
 	// By variables
 	By productsBy = By.cssSelector(".mb-3");
-	By addProductToCart = By.cssSelector(".card-body button:last-of-type");
+	By addToCart = By.cssSelector(".card-body button:last-of-type");
 	By toastMessage = By.cssSelector("#toast-container");
 
 	// List type method
@@ -45,6 +48,8 @@ public class ProductCatalogue extends AbstractComponent {
 
 	public void addProductToCart(String productName) {
 		WebElement prod = getProductByName(productName);
+		prod.findElement(addToCart).click();
 		waitForElementToAppear(toastMessage);
+		waitForElementToDisappear(spinner);
 	}
 }

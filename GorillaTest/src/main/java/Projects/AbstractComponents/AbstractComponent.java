@@ -10,23 +10,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractComponent {
 	WebDriver driver;
-	
+
 	public AbstractComponent(WebDriver driver) {
-		this.driver= driver;
+		this.driver = driver;
 	}
 
-	//Wait for an element to appear
+	// Wait for an element to appear
 	public void waitForElementToAppear(By findBy) {
-	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 
-}
-	
+	}
+
 	public void waitForElementToDisappear(WebElement ele) {
-	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-	wait.until(ExpectedConditions.invisibilityOf(ele));
-	
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.invisibilityOf(ele));
 
-} 
+	}
 
 }

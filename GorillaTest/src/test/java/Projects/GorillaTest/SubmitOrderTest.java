@@ -63,8 +63,6 @@ public class SubmitOrderTest {
 		List <WebElement>products= productCatalogue.getProductList();
 		
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ng-animating")));
 		
 		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
 		
